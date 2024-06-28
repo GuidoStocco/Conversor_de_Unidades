@@ -39,6 +39,37 @@ function convert() {
             meters = inputElement.value / 1000
             break       
     }
+
+    // converter metros para unidades de saída
+    let result;
+
+    
+    switch(toValue){
+        case "m":
+            result = meters;
+            break
+        case "km":
+            result = meters / 1000
+            break    
+        case "cm":
+            result = meters * 100
+            break        
+        case "mn":
+            result = meters * 1000
+            break       
+    }
+
+    // Exibir resultado no input
+    outputElement.value = result;
+
+
+    // Exibir resultado na mensagem
+    const fromLabel = fromElement.options[fromElement.selectedIndex].text
+    const toLabel = toElement.options[toElement.selectedIndex].text
+
+    const message = `${inputElement.value} ${fromLabel} equivalem a ${result} ${toLabel}`
+    messageElement.textContent = message;
+    return
 }
 
 
